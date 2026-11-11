@@ -1,0 +1,37 @@
+{
+  "name": "forge-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Forge Editor — a personal programming studio: code editor, learning mode, project map, AI assistant, UI builder, memory, terminal.",
+  "scripts": {
+    "dev:server": "tsx watch server/src/index.ts",
+    "dev:web": "vite",
+    "dev": "concurrently -k -n server,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "typecheck": "tsc --noEmit -p tsconfig.client.json && tsc --noEmit -p tsconfig.server.json",
+    "build": "npm run typecheck && vite build",
+    "start": "NODE_ENV=production tsx server/src/index.ts"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "express": "^4.21.2",
+    "monaco-editor": "^0.52.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/ws": "^8.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}
